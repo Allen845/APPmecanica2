@@ -1,83 +1,71 @@
 package com.uvdstudio.mecanica2
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.textfield.TextInputEditText
-import org.json.JSONArray
-
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val usuario = findViewById<TextInputEditText>(R.id.emailEt)
+        val password = findViewById<TextInputEditText>(R.id.passET)
+        val botonLoger = findViewById<Button>(R.id.btnIngresar)
 
+        botonLoger.setOnClickListener {
+            val userText = usuario.text.toString().trim()
+            val passText = password.text.toString().trim()
 
-        var usuario = findViewById<TextInputEditText>(R.id.emailEt)
-        var password = findViewById<TextInputEditText>(R.id.passET)
-        var boton_loger = findViewById<Button>(R.id.btnIngresar)
-
-
-        boton_loger.setOnClickListener {
-            if(usuario.text.toString()!="" && password.text.toString()!=""){
-                login_bd_volley(usuario.text.toString(),password.text.toString())
-            }else{
-                Toast.makeText(applicationContext,"Ecriba el Usuario/Contraseña", Toast.LENGTH_LONG).show()
+            if (userText.isNotEmpty() && passText.isNotEmpty()) {
+                loginBdVolley(userText, passText)
+            } else {
+                Toast.makeText(this, "Escriba el Usuario/Contraseña", Toast.LENGTH_LONG).show()
             }
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
     }
 
-    fun login_bd_volley(usuario:String, password:String){
-        var url = "http://localhost/C:\\XAMPP_NEW\\htdocs"
+    private fun loginBdVolley(usuario: String, password: String) {
+        val url = "http://10.0.2.2/mecanica/login.php"  // Ajusta la ruta correcta de tu servidor
 
-        var peticion_post = object:StringRequest(Method.POST, url, Response.Listener { response->
+        val jsonBody = JSONObject()
+        jsonBody.put("usuario", usuario)
+        jsonBody.put("password", password)
 
-            try {
-                        var respuesta = JSONArray(response)
-                        var valores = respuesta.getJSONObject(0)
-
-                        var intent = Intent(applicationContext, loginActivity::class.java)
-                intent.putExtra("ID", valores.get("id").toString())
-                intent.putExtra("Nombre", valores.get("nombre").toString())
-                intent.putExtra("Valores", valores.get("perfil").toString())
-
-                   startActivity(intent)
-
-            }catch (ex:Exception){
-                Toast.makeText(applicationContext,"Usuario/ Contraseña Invalidos.", Toast.LENGTH_LONG).show()
-            }
-
-        },Response.ErrorListener { error ->
-            Toast.makeText(applicationContext,"Usuario/ Contraseña Invalidos.", Toast.LENGTH_LONG).show()
-        })
-        {
-                override fun getParams():MutableMap<String, String> {
-
-                    var params = HashMap<String, String>()
-                    params.put("usuario", usuario)
-                    params.put("password", password)
-                    return params
+        val request = JsonObjectRequest(
+            Request.Method.POST, url, jsonBody,
+            { response ->
+                try {
+                    val success = response.getBoolean("success")
+                    if (success) {
+                        val user = response.getJSONObject("user")
+                        val intent = Intent(this, loginActivity::class.java)
+                        intent.putExtra("ID", user.getString("id"))
+                        intent.putExtra("Nombre", user.getString("nombre"))
+                        intent.putExtra("Perfil", user.getString("perfil"))
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, response.getString("message"), Toast.LENGTH_LONG).show()
+                    }
+                } catch (ex: Exception) {
+                    Toast.makeText(this, "Error procesando la respuesta", Toast.LENGTH_LONG).show()
                 }
-        }
-        Volley.newRequestQueue(this).add(peticion_post)
+            },
+            {
+                Toast.makeText(this, "Error de conexión con el servidor", Toast.LENGTH_LONG).show()
+            }
+        )
+
+        Volley.newRequestQueue(this).add(request)
     }
 }
