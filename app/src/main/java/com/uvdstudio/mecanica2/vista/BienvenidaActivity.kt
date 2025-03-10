@@ -1,4 +1,4 @@
-package com.uvdstudio.mecanica2
+package com.uvdstudio.mecanica2.vista
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.uvdstudio.mecanica2
+package com.uvdstudio.mecanica2.vista
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.textfield.TextInputEditText
+import com.uvdstudio.mecanica2.R
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
