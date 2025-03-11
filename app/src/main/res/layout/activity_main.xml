@@ -73,7 +73,7 @@
             <EditText
                 android:id="@+id/etUsuario"
                 android:layout_width="match_parent"
-                android:layout_height="51dp"
+                android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/baseline_person_24"
                 android:hint="Escribe tu Usuario"
                 android:inputType="textEmailAddress" />

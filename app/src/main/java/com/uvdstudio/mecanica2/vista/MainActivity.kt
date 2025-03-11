@@ -1,5 +1,6 @@
 package com.uvdstudio.mecanica2.vista
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -14,6 +15,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login(usuario: String, password: String) {
-        val url = "https://alpdigi.online/ServicioMecanica/login.php"
+        val url = "http://alpdigi.online/ServicioMecanica/login.php?usuario=$usuario&password=$password"
 
         val jsonBody = JSONObject()
         jsonBody.put("usuario", usuario)
