@@ -17,6 +17,98 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/EvidenciaButton"
+        android:layout_width="191dp"
+        android:layout_height="163dp"
+        android:backgroundTint="#FF3131"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.189"
+        tools:src="@drawable/icon_camera" />
+
+    <ImageButton
+        android:id="@+id/ProformaButton"
+        android:layout_width="170dp"
+        android:layout_height="168dp"
+        android:backgroundTint="#7ed957"
+        android:scaleType="fitCenter"
+        android:src="@drawable/proforma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191"
+        tools:src="@drawable/proforma" />
+
+    <ImageButton
+        android:id="@+id/EscaneoButton"
+        android:layout_width="191dp"
+        android:layout_height="152dp"
+        android:backgroundTint="#5e17eb"
+        android:scaleType="fitCenter"
+        android:src="@drawable/proforma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/escaneo" />
+
+    <ImageButton
+        android:id="@+id/CotizacionButton"
+        android:layout_width="176dp"
+        android:layout_height="149dp"
+        android:backgroundTint="#ff914d"
+        android:scaleType="fitCenter"
+        android:src="@drawable/proforma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/cotizacion" />
+
+    <ImageButton
+        android:id="@+id/ReclamosButton"
+        android:layout_width="191dp"
+        android:layout_height="149dp"
+        android:backgroundTint="#00bf63"
+        android:scaleType="fitCenter"
+        android:src="@drawable/proforma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.849"
+        tools:src="@drawable/reclamo" />
+
+    <ImageButton
+        android:id="@+id/UsuariosButton"
+        android:layout_width="182dp"
+        android:layout_height="145dp"
+        android:backgroundTint="#ffde59"
+        android:scaleType="fitCenter"
+        android:src="@drawable/proforma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        tools:src="@drawable/baseline_person_24" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
