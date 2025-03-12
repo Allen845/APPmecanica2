@@ -4,17 +4,35 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/home"
             android:title="@string/menu_home" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_usuario"
+            android:icon="@drawable/usuario"
+            android:title="@string/menu_usuario" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_proforma"
+            android:icon="@drawable/proforma"
+            android:title="@string/menu_proforma" />
+        <item
+            android:id="@+id/nav_escaneo"
+            android:icon="@drawable/escaneo"
+            android:title="@string/menu_escaneo" />
+        <item
+            android:id="@+id/nav_cotizacion"
+            android:icon="@drawable/cotizacion"
+            android:title="@string/menu_cotizacion" />
+        <item
+            android:id="@+id/nav_reclamo"
+            android:icon="@drawable/reclamo"
+            android:title="@string/menu_reclamo" />
+        <item
+            android:id="@+id/nav_evidencia"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_evidencia" />
     </group>
 </menu>
