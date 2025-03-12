@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.Mecanica2" parent="Base.Theme.Mecanica2" />
+
+    <style name="Theme.Mecanica2.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Mecanica2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Mecanica2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

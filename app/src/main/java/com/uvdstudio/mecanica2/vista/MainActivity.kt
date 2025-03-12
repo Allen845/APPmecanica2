@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (success) {
                     Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, HomeActivity::class.java)
+                    val intent = Intent(this, MenuPrincipal::class.java)
                     startActivity(intent)
                     finish()
                 } else {

@@ -17,6 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".vista.MenuPrincipalActivity"
+            android:exported="false"
+            android:label="@string/title_activity_menu_principal"
+            android:theme="@style/Theme.Mecanica2.NoActionBar" />
+        <activity
+            android:name=".vista.MenuPrincipal"
+            android:exported="false"
+            android:label="@string/title_activity_menu_principal"
+            android:theme="@style/Theme.Mecanica2.NoActionBar" />
+        <activity
+            android:name=".vista.LoginTablet"
+            android:exported="false" />
+        <activity
             android:name=".vista.HomeActivity"
             android:exported="false" />
         <activity
